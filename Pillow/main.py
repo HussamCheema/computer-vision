@@ -30,10 +30,20 @@ def copy_paste_region(img, box):
     img.paste(region,box)
     change_format(img, ".", "pasted.png")
 
+def resize(img, w, h):
+    out = img.resize((w,h))
+    change_format(out, ".", "resized.png")
+
+def rotate(img, angle):
+    out = img.rotate(angle)
+    change_format(out, ".", "rotated.png")
+
 if __name__ == "__main__":
     img = read_image()
     g_img = convert_to_gray(img)
     # show_image(img)
     # change_format(img, ".", "new.png")
     # create_thumbnail(img, 128, 128)
-    copy_paste_region(img, (100, 100, 400, 400))
+    # copy_paste_region(img, (100, 100, 400, 400))
+    # resize(img, 200, 200)
+    rotate(img, 45)
